@@ -160,8 +160,8 @@ class Mission:
             p_in_curr = p_in_tot[round(t)%len(p_in_tot)]*1000 #Express in mW
             
             # Subtract lifetime degradation
-            p_in_curr = p_in_curr * (1-self.config["years_passed"] \
-                * self.config["panel_degradation_factor"])
+            p_in_curr = p_in_curr * ((1-self.config["years_passed"]) \
+                ** self.config["panel_degradation_factor"])
             
             data_i.loc[step,"p_in"] = p_in_curr
             
